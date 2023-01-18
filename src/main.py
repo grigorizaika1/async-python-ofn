@@ -1,9 +1,9 @@
 import functions_framework
+from openfunction.function_runtime import OpenFunctionRuntime
 
-@functions_framework.event
 def hello_world(event, context):
-    # context.logger.info("Event ID: %s", context.event_id) # this is a suggestion from copilot
-    context.send("1. Hello World!")
-    return "2. Hello World!"
+    runtime = OpenFunctionRuntime.parse(context)
+    runtime.send("Hello World!", "async-output")
 
+    return "2. Hello World!"
 
