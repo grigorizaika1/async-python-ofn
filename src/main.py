@@ -1,6 +1,7 @@
 import functions_framework
 from openfunction.function_runtime import OpenFunctionRuntime
 
+@functions_framework.event
 def hello_world(event, context):
     runtime = OpenFunctionRuntime.parse(context)
     runtime.send("Hello World!", "async-output")
