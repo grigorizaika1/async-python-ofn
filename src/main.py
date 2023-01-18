@@ -1,4 +1,5 @@
 import functions_framework
 
-def hello_world():
-    print("Hello World!")
+@functions_framework.event
+def hello_world(event, context):
+    return "Hello World!"
