@@ -56,9 +56,12 @@ def message_mqtt():
     client.subscribe("encyclopedia/#", qos=1)
 
     # a single publish, this can also be done in loops, etc.
-    client.publish("faas", payload="hello from the cloud function! (2)", qos=1)
+    msg_info = client.publish("faas", payload="Hello from the cloud function! (faas)", qos=1)
 
     # loop_forever for simplicity, here you need to stop the loop manually
     # you can also use loop_start and loop_stop
-    client.loop_forever()
+    # client.loop_forever()
+    client.loop_start()
+    msg_info.wait_for_publish()
+    client.loop_stop()
 
