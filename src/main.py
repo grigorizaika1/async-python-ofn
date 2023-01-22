@@ -16,7 +16,7 @@ from mqtt_check import message_mqtt
 
 #     return "2. Hello World!"
 
-@functions_framework.http
+# @functions_framework.http
 def hello_world(request):
     message_mqtt()
 
