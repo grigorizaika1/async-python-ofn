@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import time
+import datetime
 import paho.mqtt.client as paho
 from paho import mqtt
 
@@ -56,7 +56,7 @@ def message_mqtt():
     client.subscribe("encyclopedia/#", qos=1)
 
     # a single publish, this can also be done in loops, etc.
-    msg_info = client.publish("faas", payload="Hello from the cloud function! (faas)", qos=1)
+    msg_info = client.publish("faas", payload=f"Hello from faas! Datetime: {datetime.datetime.now()}", qos=1)
 
     # loop_forever for simplicity, here you need to stop the loop manually
     # you can also use loop_start and loop_stop
