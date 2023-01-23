@@ -20,12 +20,12 @@ from mqtt_check import message_mqtt
 # @functions_framework.http
 def hello_world(request):
     message_mqtt()
-
-    resonse_data = {
-        attr: str(value)
-        for attr, value in request.__dict__.items() 
-        if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
-    }
+    return "---"
+    # response_data = {
+        # attr: str(value)
+        # for attr, value in request.__dict__.items() 
+        # if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
+    # }
 
     # event_data = marshal_background_event_data(request)
     # event = BackgroundEvent(**event_data)
@@ -33,4 +33,4 @@ def hello_world(request):
     # runtime = OpenFunctionRuntime.parse(context)
     # runtime.send("Hello World!!!", "async-output")
 
-    return json.dumps(resonse_data)
+    # return json.dumps(response_data)
