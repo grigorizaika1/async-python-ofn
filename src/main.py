@@ -45,6 +45,6 @@ def hello_world(request):
     except Exception as e:
         response_data = {"error": str(e)}
 
-    return response_data
+    # return response_data
 
-    # return json.dumps(response_data)
+    return json.dumps(response_data)
