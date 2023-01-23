@@ -29,7 +29,7 @@ def hello_world(request):
         #     if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
         # }
 
-        event_data = marshal_background_event_data(request)
+        # event_data = marshal_background_event_data(request)
         # event = BackgroundEvent(**event_data)
         # context = FunctionContext(**event.context)
         # runtime = OpenFunctionRuntime.parse(context)
@@ -39,7 +39,7 @@ def hello_world(request):
             "message": "Success?",
             "data": {
                 # "outputs": str(runtime.context.outputs)
-                "event_data": str(event_data)
+                # "event_data": str(event_data)
             }
         } 
     except Exception as e:
