@@ -1,5 +1,5 @@
-import json
-import functions_framework
+# import json
+# import functions_framework
 # from functions_framework.event_conversion import marshal_background_event_data
 # from functions_framework.background_event import BackgroundEvent
 # from openfunction.function_runtime import OpenFunctionRuntime
@@ -45,6 +45,6 @@ def hello_world(request):
     except Exception as e:
         response_data = {"error": str(e)}
 
-    # return response_data
+    return response_data
 
-    return json.dumps(response_data)
+    # return json.dumps(response_data)
