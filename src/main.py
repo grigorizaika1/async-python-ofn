@@ -22,9 +22,10 @@ def hello_world(request):
     message_mqtt()
 
     try:
+        request_dict = request.__dict__.copy()
         response_data = {
             attr: str(value)
-            for attr, value in request.__dict__.items() 
+            for attr, value in request_dict.items() 
             if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
         }
     except Exception as e:
