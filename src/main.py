@@ -18,7 +18,7 @@ from mqtt_check import message_mqtt
 
 # @functions_framework.http
 def hello_world(request):
-    message_mqtt()
+    # message_mqtt()
 
     # event_data = marshal_background_event_data(request)
     # event = BackgroundEvent(**event_data)
