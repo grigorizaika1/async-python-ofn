@@ -20,7 +20,10 @@ from mqtt_check import message_mqtt
 # @functions_framework.http
 def hello_world(request):
     message_mqtt()
-    return "---"
+    return {
+        "message": "Hello World!",
+        "args": "args"
+    }
     # response_data = {
         # attr: str(value)
         # for attr, value in request.__dict__.items() 
