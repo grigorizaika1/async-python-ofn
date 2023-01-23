@@ -5,7 +5,7 @@
 # from openfunction.function_context import FunctionContext
 # from openfunction.dapr_output_middleware import dapr_output_middleware
 
-# from mqtt_check import message_mqtt
+from mqtt_check import message_mqtt
 
 # @functions_framework.event
 # def hello_world(event, context):
@@ -18,7 +18,7 @@
 
 # @functions_framework.http
 def hello_world(request):
-    # message_mqtt()
+    message_mqtt()
 
     # event_data = marshal_background_event_data(request)
     # event = BackgroundEvent(**event_data)
