@@ -20,15 +20,17 @@ from mqtt_check import message_mqtt
 # @functions_framework.http
 def hello_world(request):
     message_mqtt()
-    return {
-        "message": "Hello World!",
-        "args": "args"
-    }
-    # response_data = {
-        # attr: str(value)
-        # for attr, value in request.__dict__.items() 
-        # if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
-    # }
+
+    try:
+        response_data = {
+            attr: str(value)
+            for attr, value in request.__dict__.items() 
+            if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
+        }
+    except Exception as e:
+        response_data = {"error": str(e)}
+
+    return response_data
 
     # event_data = marshal_background_event_data(request)
     # event = BackgroundEvent(**event_data)
