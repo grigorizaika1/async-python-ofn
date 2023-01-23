@@ -22,21 +22,22 @@ def hello_world(request):
     message_mqtt()
 
     try:
-        request_dict = request.__dict__.copy()
-        response_data = {
-            attr: str(value)
-            for attr, value in request_dict.items() 
-            if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
-        }
+        # request_dict = request.__dict__.copy()
+        # response_data = {
+        #     attr: str(value)
+        #     for attr, value in request_dict.items() 
+        #     if attr in ["args", "cookies", "headers", "environ", "form", "json", "values"]
+        # }
+
+        event_data = marshal_background_event_data(request)
+        event = BackgroundEvent(**event_data)
+        context = FunctionContext(**event.context)
+        runtime = OpenFunctionRuntime.parse(context)
+        runtime.send("Hello World!!!", "async-output")
+
     except Exception as e:
         response_data = {"error": str(e)}
 
     return response_data
-
-    # event_data = marshal_background_event_data(request)
-    # event = BackgroundEvent(**event_data)
-    # context = FunctionContext(**event.context)
-    # runtime = OpenFunctionRuntime.parse(context)
-    # runtime.send("Hello World!!!", "async-output")
 
     # return json.dumps(response_data)
