@@ -34,7 +34,13 @@ def hello_world(request):
         context = FunctionContext(**event.context)
         runtime = OpenFunctionRuntime.parse(context)
         runtime.send("Hello World!!!", "async-output")
-        respose_data = {"message": "Success?"} 
+
+        response_data = {
+            "message": "Success?",
+            "data": {
+                "outputs": str(runtime.context.outputs)
+            }
+        } 
     except Exception as e:
         response_data = {"error": str(e)}
 
