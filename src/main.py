@@ -19,7 +19,7 @@ from mqtt_check import message_mqtt
 
 # @functions_framework.http
 def hello_world(request):
-    message_mqtt()
+    # message_mqtt()
 
     try:
         # request_dict = request.__dict__.copy()
