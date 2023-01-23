@@ -1,3 +1,4 @@
+import json
 import functions_framework
 from functions_framework.event_conversion import marshal_background_event_data
 from functions_framework.background_event import BackgroundEvent
@@ -32,4 +33,4 @@ def hello_world(request):
     # runtime = OpenFunctionRuntime.parse(context)
     # runtime.send("Hello World!!!", "async-output")
 
-    return resonse_data
+    return json.dumps(resonse_data)
