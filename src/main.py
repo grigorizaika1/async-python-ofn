@@ -30,15 +30,16 @@ def hello_world(request):
         # }
 
         event_data = marshal_background_event_data(request)
-        event = BackgroundEvent(**event_data)
-        context = FunctionContext(**event.context)
-        runtime = OpenFunctionRuntime.parse(context)
-        runtime.send("Hello World!!!", "async-output")
+        # event = BackgroundEvent(**event_data)
+        # context = FunctionContext(**event.context)
+        # runtime = OpenFunctionRuntime.parse(context)
+        # runtime.send("Hello World!!!", "async-output")
 
         response_data = {
             "message": "Success?",
             "data": {
-                "outputs": str(runtime.context.outputs)
+                # "outputs": str(runtime.context.outputs)
+                "event_data": str(event_data)
             }
         } 
     except Exception as e:
