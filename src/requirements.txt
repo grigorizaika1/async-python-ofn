@@ -1,4 +1,4 @@
-# git+https://github.com/OpenFunction/functions-framework-python
+git+https://github.com/OpenFunction/functions-framework-python
 # dapr-ext-grpc
 # paho-mqtt
 # functions-framework==1.4.3
