@@ -5,7 +5,7 @@ def hello_world(request):
         "message": "hello, world",
         "form": request.form,
         "data": request.data,
-        "args": request.args
+        "args": str(request.args)
     }
     
     return json.dumps(response_data)
